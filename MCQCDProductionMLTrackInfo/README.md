@@ -93,8 +93,9 @@ with
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/START53_V27.db')
 process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_V27::All', '')
 ```
-- Note for QCD (Pythia) re-generating events from scratch.
-GEN-level cut at pThat>600 (need boosted events!) for this in the *gensimQCD.py* change the line
+This sample is dedicated to studying 'boosted' events, that we need change the parameter pThat threshold  in a pythia generator v6 from pThat>15 to pThat>600 , for more information of this parameters visit [pythia documentation](http://home.thep.lu.se/Pythia/).
+
+- For this in the *gensimQCD.py* change the line
 
 ```
 'CKIN(3)=15.           ! minimum pt hat for hard interactions',
