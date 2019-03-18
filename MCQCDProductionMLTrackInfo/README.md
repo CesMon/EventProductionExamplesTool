@@ -236,5 +236,5 @@ For this example use an existing EDAnalyzer called SaveHits for more information
   cmsRun MLntupleQCD.py
   ```
 
-##### As a result you will get a Ntuple_output.root file with simple variables and histograms.
+##### As a result you will get a NtupleQCD.root file with simple variables and histograms.
 
