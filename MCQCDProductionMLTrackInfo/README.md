@@ -126,7 +126,6 @@ tailf gensimML.log
 
 ```
 cmsDriver.py step1 --filein file:gensimQCD.root --fileout file:hltQCD.root --mc --eventcontent RAWSIM --runsScenarioForMC Run2012_AB_C_D_oneRunPerEra --datatier GEN-SIM-RAW --conditions=START53_V27::All --step DIGI,L1,DIGI2RAW,HLT:7E33v2 --python_filename hltQCD.py --no_exec --customise Configuration/DataProcessing/Utils.addMonitoring -n 10 --pileup_input root://eospublic.cern.ch//eos/opendata/cms/MonteCarlo2012/Summer12/MinBias_TuneZ2star_8TeV-pythia6/GEN-SIM/START50_V13-v3/0002/FEF2F4CC-0E6A-E111-96F6-0030487F1C57.root --pileup 2012_Summer_50ns_PoissonOOTPU
-
 ```
 
 Note here that the ROOT file *gensimQCD.root*, which was obtained in the last step (step 0), serves as input for step1.  
@@ -145,7 +144,7 @@ with
 process.GlobalTag.connect = cms.string('sqlite_file:/cvmfs/cms-opendata-conddb.cern.ch/START53_V27.db')
 process.GlobalTag = GlobalTag(process.GlobalTag, 'START53_V27::All', '')
 ```
-- Note to later use the EDAnalyzer change the line
+- In order to save the tracking hits information, change the line:
 
 ```
 outputCommands = process.RAWSIMEventContent.outputCommands
