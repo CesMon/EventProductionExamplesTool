@@ -32,14 +32,17 @@ Then follow these steps:
 In this example we will use the code of an EDAnalyzer that will give us the information in NTUPLE format for this follow these steps:
 
 - Obtain the code from git:
+
   ```   
-  git clone -b 2012 git@github.com:CesMon/EventProductionExamplesTool.git 
+  git clone -b 2012 git@github.com:cms-legacydata-analyses/EventProductionExamplesTool.git 
   ```   
 - Change to EventProductionExamplesTool/MCQCDProductionMLTrackInfo directory 
+
   ```
   cd EventProductionExamplesTool/MCQCDProductionMLTrackInfo
   ```
 - Compile everything:
+
   ```
   scram b
   ```
