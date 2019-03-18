@@ -226,36 +226,15 @@ the MC and Data released by CMS.
 The instructions to write your own EDAnalyzer are [here](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookWriteFrameworkModule).
 For this example use an existing EDAnalyzer called SaveHits for more information on the parameters within this can be found in this [repository](https://github.com/emanueleusai/opendatadnn/tree/master/SaveHits/SaveHits).
 
-- Obtain the code from git:
-```
-git clone git://github.com/CesMon/EdAnalyzer.git
-```
-- Change to EdAnalyzer directory
-```
-cd EdAnalyzer
-```
-- Compile everything:
-```
-scram b
-```
 - Make a soft link to the python configuration file
-```
-ln -s python/step3.py .
-```
-We need to make the following
- symbolic links:
-
-```
-ln -sf /cvmfs/cms-opendata-conddb.cern.ch/START53_V27 START53_V27
-
-ln -sf /cvmfs/cms-opendata-conddb.cern.ch/START53_V27.db START53_V27.db
-```
-
+  ```
+  ln -s python/MLntupleQCD.py .
+  ```
 
 - Run the CMSSW configuration file
-```
-cmsRun step3.py
-```
+  ```
+  cmsRun MLntupleQCD.py
+  ```
 
-##### As a result you will get a savehits_output.root file with simple variables and histograms.
+##### As a result you will get a Ntuple_output.root file with simple variables and histograms.
 
