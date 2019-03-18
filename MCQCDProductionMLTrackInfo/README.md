@@ -157,7 +157,6 @@ with
 
 ```
 outputCommands = process.RAWSIMEventContent.outputCommands+cms.untracked.vstring('keep *_simSiPixelDigis_*_*','keep *_simSiStripDigis_*_*'),
- 
 ```
 
 - Now, run the CMSSW executable in the background
