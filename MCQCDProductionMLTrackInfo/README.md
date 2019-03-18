@@ -1,4 +1,7 @@
-# How to produce 2012 MC QCD events with ML Tracker Hits info from scratch with Pile-up  
+# How to produce 2012 MC QCD events with Tracker Hits info from scratch with Pile-up (good for Machine Learning studies) 
+This sample is an special one in the sense that it has use low-level tracking information with ML to create event-level or jetlevel classifiers,  also gives us position of pixel and strip tracker hits in simple ntuple-like format,this is useful because in AOD opendata files  no tracker rechits available.
+
+
 
 We will produce these events in four steps.  First we perform the simulation up to the *SIM* step, then another step
 up to the *HLT* simulation, then up to the reconstruction *RECO*, and then finaly extract information from a CMS root file type EDM  by
@@ -25,10 +28,20 @@ Then follow these steps:
   ```
   cmsenv
   ```   
+
+In this example we will use the code of an EDAnalyzer that will give us the information in NTUPLE format for this follow these steps:
+
+- Obtain the code from git:
+  ```   
+  git clone -b 2012 git@github.com:CesMon/EventProductionExamplesTool.git 
+  ```   
+- Change to EventProductionExamplesTool/MCQCDProductionMLTrackInfo directory 
+  ```
+  cd EventProductionExamplesTool/MCQCDProductionMLTrackInfo
+  ```
   
 <!--Next, identify the configuration fragment that determines what physics event generator we wish to use and what topology we intend to generate. -->
-In this example we will use the `QCDForPF_8TeV_cfi.py` fragment , which can be found in the [/Configuration/Generator/python](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/Configuration/Generator/python) area of CMSSW.  More information on the parameters within this
-fragment can be found in the [MC production overview](/docs/cms-mc-production-overview) documentation.
+In this example we will use the `QCDForPF_8TeV_cfi.py` fragment , which can be found in the [/Configuration/Generator/python](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/Configuration/Generator/python) area of CMSSW.  
 
 ##### Step 0: Generation and simulation
 
@@ -41,10 +54,10 @@ cmsDriver.py QCDForPF_8TeV_cfi.py --fileout file:gensimQCD.root --mc --eventcont
 Note that we put the naked name of our input fragment (*QCDForPF_8TeV_cfi.py*) because the script will look, by default, in
 the */Configuration/Generator/python* area of the CMSSW release.  More information about the *--datatier* used can be found at the [CMS Workbook](https://twiki.cern.ch/twiki/bin/view/CMSPublic/WorkBookDataFormats); that is the level of information we need/want in our ROOT output file.
 
-Notice also that wee have used
+Notice also that we have used
 the `START53_V27::All` conditions, because this is the snapshot of the conditions database we need.  More information about this can
-be found at the [CMS Guide for Conditions](docs/cms-guide-for-condition-database) documentation.  As noted above, for this first step, step 0, we
-only do the *GEN* and *SIM* parts of the whole chain.  We only generate 10 events for this example and choose the name of *gensimML* for the output files
+be found at the [CMS Guide for Conditions]( http://opendata.cern.ch/docs/cms-guide-for-condition-database) documentation.  As noted above, for this first step, step 0, we
+only do the *GEN* and *SIM* parts of the whole chain.  We only generate 10 events for this example and choose the name of *gensimQCD* for the output files
 in order to identify them correctly.
 
 After executing this command, we will get the *gensimQCD.py* configuration file, which will be run with the *cmsRun* executable.  First, however, we need
