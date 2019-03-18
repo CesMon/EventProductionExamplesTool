@@ -39,6 +39,10 @@ In this example we will use the code of an EDAnalyzer that will give us the info
   ```
   cd EventProductionExamplesTool/MCQCDProductionMLTrackInfo
   ```
+- Compile everything:
+  ```
+  scram b
+  ```
   
 <!--Next, identify the configuration fragment that determines what physics event generator we wish to use and what topology we intend to generate. -->
 In this example we will use the `QCDForPF_8TeV_cfi.py` fragment , which can be found in the [/Configuration/Generator/python](https://github.com/cms-sw/cmssw/blob/CMSSW_5_3_X/Configuration/Generator/python) area of CMSSW.  
